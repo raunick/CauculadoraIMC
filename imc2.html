@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Teste de IMC</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">    <link rel="stylesheet" type="text/css" media="screen" href="estilos.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,700" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: Montserrat;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+      .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+      }
+      .form-signin .checkbox {
+        font-weight: 400;
+      }
+      .form-signin .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+      }
+      .form-signin .form-control:focus {
+        z-index: 2;
+      }
+      .form-signin input[type="altura"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .form-signin input[type="peso"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .borda{
+
+          border-style: solid;
+          border: 2px #073894;
+          border-radius: 2px;
+      }
+      .centralizar{
+        text-align: center;
+      }
+      .font{
+        font-family: Montserrat;
+        font-weight: 700;
+      }
+    </style>
+
+</head>
+<body>
+    <form class="form-signin borda"name="imcForm" id="imcForm" action="#">      
+        <p class="centralizar">
+          <img class="" src="img/desenhando.svg" alt="logo" width="120" height="120">
+        </p>
+        <br>
+        <br>
+          <h1 class="centralizar font">Faça seu teste de IMC</h1>
+        <br>                      
+        
+        <div class="form-group">
+        <label for="number">Informe sua altura:</label>
+        <input type="number" class="form-control" id="altura" placeholder="Exemplo: 1,75">
+        <small id="alturaHelp" class="form-text text-muted">Sua atura deve ser informada em centimetros.</small>
+        </div>
+        
+        <div class="form-group">
+        <label for="number">Informe seu peso:</label>
+        <input type="number" class="form-control" id="peso" placeholder="Exemplo: 73">
+        </div>
+        
+        <button type="submit" class="btn btn-lg btn-primary btn-block" value="Calcular" onclick="calcula_imc()">Calcular</button>
+        <br>
+        <p class="text-secondary centralizar">Criado por Raunick</p>
+      
+    </form>
+    
+                       
+
+                        
+    <script type="text/javascript">
+
+        function calcula_imc(){
+
+        var altura = document.imcForm.altura.value;
+        var peso = document.imcForm.peso.value;
+        
+        var quadrado = (altura * altura);
+        
+        var calculo = (peso/quadrado);
+        
+        if(calculo<18.5){
+        alert("Você está magro com esse indice: " + calculo.toFixed(2));
+        }
+        else if(calculo>=18.5 && calculo<24.9){
+        alert("Você está normal com esse indice: " + calculo.toFixed(2));
+        }
+        
+        else if(calculo>=25 && calculo<29.9) {
+        alert("Você está com sobre peso com esse indice: " + calculo.toFixed(2));
+        }
+        else if(calculo>=30 && calculo<39.9) {
+        alert("Você está com obesidade com esse indice: " + calculo.toFixed(2));
+        }
+        else if (calculo>40)
+        alert("Você estácom obesidade grave com esse indice: " + calculo.toFixed(2));
+        }
+        
+        </script>
+</body>
+</html>
